@@ -1,7 +1,7 @@
 import * as S from './styled';
 
-const Input = ({type, placeholder, value}) => {
-  return <S.InputTag type={type} placeholder={placeholder} value={value} />;
+const Input = ({type, placeholder, onChange}) => {
+  return <S.InputTag type={type} placeholder={placeholder} onChange={onChange} />;
 }
 
 export default Input;
