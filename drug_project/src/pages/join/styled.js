@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import LogoSrc from '../../image/logoImg-removebg-preview.png';
 import { InputTag } from '../../components/input/styled';
 import { Button } from '../../components/button/styled';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 100%;
@@ -20,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.div`
-  width: 90%;
+  width: 100%;
   min-height: 500px;
   display: flex;
   justify-content: space-around;
@@ -29,29 +30,41 @@ export const Form = styled.div`
 `;
   
 export const FormEl = styled.div`
-width: 600px;
-height: 110px;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
->${InputTag}{
-  width: 100%;
-  height: 80px;
-  border-radius: 15px;
-  background: #D9D9D9;
-  padding: 0 20px;
-  font-size: 18px;
-}
+  width: 40%;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  >${InputTag}{
+    width: 100%;
+    height: 80px;
+    border-radius: 15px;
+    background: #D9D9D9;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 400px){
+    justify-content: space-between;
+    width: 70%;
+    height: 90px;
+    >${InputTag}{
+      height: 60px;
+    }
+  }
 `;
 
 export const Message = styled.p`
   width: 100%;
-  height: 20px;
+  height: 25px;
   padding: 0 20px;
   color: ${props => props.bool ? 'green' : 'red'};
+  @media screen and (max-width: 400px){
+    font-size: 13px;
+    padding: 0 10px;
+  }
 `;
 
-export const LogoImage = styled.div`
+export const LogoImage = styled(Link)`
   width: 90%;
   max-width: 900px;
   height: 110px;

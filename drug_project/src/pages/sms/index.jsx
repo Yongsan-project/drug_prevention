@@ -40,11 +40,13 @@ const Sms = () => {
   }
 
   const logout = () => {
-    axios.get('/logout').then((response) => {
-
+    axios.get('/logout')
+    .then((response) => {
+      console.log(response);
+      return navigate('/');
     }).catch((error) => {
       console.log(error);
-    })
+    });
   }
 
   useEffect(() => {
@@ -68,9 +70,11 @@ const Sms = () => {
   return (
     <S.Container>
       <S.LogoImage />
-      <Input onChange={inputChange} placeholder='Enter Student PhoneNumber' />
-      <Button onClick={checkPhone}>전송</Button>
-      <Button onClick={logout}>로그아웃</Button>
+      <Input onChange={inputChange} placeholder='문자 받을 번호를 입력해주세요.' />
+      <S.Btns>
+        <Button onClick={checkPhone}>전송</Button>
+        <Button onClick={logout}>로그아웃</Button>
+      </S.Btns>
     </S.Container>
   );
 }
