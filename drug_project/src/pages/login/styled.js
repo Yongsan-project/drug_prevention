@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { InputTag } from '../../components/input/styled.js';
 import { Button } from '../../components/button/styled.js';
+import { Link } from 'react-router-dom';
 import LogoSrc from '../../image/logoImg-removebg-preview.png';
 
 export const Title = styled.h2``;
@@ -37,7 +38,7 @@ export const Btns = styled.div`
   }
 `;
 
-export const Link = styled.div`
+export const Join = styled(Link)`
   width: content-fit;
   height: 25px;
   color: #fff;

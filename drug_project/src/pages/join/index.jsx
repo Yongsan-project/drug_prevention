@@ -65,7 +65,7 @@ const Join = () => {
       setNameMessage("이름은 2글자 이상 5글자 이하로 입력해주세요!");
       setIsName(false);
     } else {
-      setNameMessage("올바른 이름입니다.");
+      setNameMessage("올바른 이름 형식입니다.");
       setIsName(true);
     }
   };
@@ -167,7 +167,7 @@ const Join = () => {
   return(
     <S.Container>
       {loading ? <Loading /> : null}
-      <S.LogoImage />
+      <S.LogoImage to='/' />
       <S.Form>
         <S.FormEl>
           <Input onChange={onChangeId} type='text' placeholder='아이디를 입력하세요.' />

@@ -58,7 +58,7 @@ const Login = () => {
       <Input onChange={onChangePassword} type='password' placeholder='비밀번호를 입력하세요.' />
       <S.Btns>
         <Button type='button' onClick={Test}>로그인</Button>
-        <Link to='/join'><S.Link>회원가입하기</S.Link></Link>
+        <S.Join to='/join'>회원가입하기</S.Join>
       </S.Btns>
     </S.Container>
   );

@@ -37,11 +37,6 @@ export const Ul = styled.ul`
     height: calc(100% - 80px);
   }
   @media screen and (max-width: 400px){
-    // margin-top: 100px;
     row-gap: 10px;
-    // padding-bottom: 10px;
-    // overflow: hidden;
-    // padding-right: 0;
-    // height: calc(100% - 80px);
   }
 `;
