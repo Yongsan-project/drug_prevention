@@ -43,7 +43,7 @@ export const FormEl = styled.div`
     padding: 0 20px;
     font-size: 18px;
   }
-  @media screen and (max-width: 400px){
+  @media screen and (max-width: 1024px){
     justify-content: space-between;
     width: 70%;
     height: 90px;
