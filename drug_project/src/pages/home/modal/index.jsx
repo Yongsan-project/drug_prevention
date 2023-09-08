@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 const Modal = ({data, closeModal}) => {
+  const URL = 'https://tourmaline-snickerdoodle-a92204.netlify.app';
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
