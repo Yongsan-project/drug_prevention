@@ -34,7 +34,7 @@ const Modal = ({data, closeModal}) => {
             <S.Price>{`판매 가격: ${data.price_unit} / ${data.price}`}</S.Price>
           </S.TextBox>
         </S.MiddleContainer>
-        <Button type='button'>구매</Button>
+        <Button onClick={()=>{window.open(URL)}}>구매</Button>
       </S.White>
     </S.Container>,
     document.querySelector('#modal')

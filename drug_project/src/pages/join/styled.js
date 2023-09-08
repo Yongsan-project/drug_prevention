@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  // background: #1E1E1E;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +42,7 @@ export const FormEl = styled.div`
     padding: 0 20px;
     font-size: 18px;
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 768px){
     justify-content: space-between;
     width: 70%;
     height: 90px;
