@@ -14,7 +14,6 @@ export const Container = styled.div`
 export const TextBox = styled.div`
   width: 40%;
   height: 500px;
-  background: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
