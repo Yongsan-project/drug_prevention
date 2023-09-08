@@ -12,7 +12,7 @@ function Router(){
         <Route exact path='/' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/join' element={<Join />} />
-        <Route path='send' element={<Sms />} />
+        <Route path='/send' element={<Sms />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
