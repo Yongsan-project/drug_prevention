@@ -45,7 +45,7 @@ const Home = () => {
     setIsSide(false);
   }
   const logout = () => {
-    axios.get('/logout')
+    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/logout')
     .then((response) => {
       console.log(response);
       return navigate('/');
@@ -55,7 +55,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    axios.get('/home')
+    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/home')
     .then((response) => {
       setUserId(response.data.user);
       if(response.data.user === 'yongsandrug') return navigate('/send', {replace: true, state: response.data.user});

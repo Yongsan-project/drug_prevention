@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('/login')
+    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login')
     .then((response) => {
       // console.log(response);
     }).catch((error) => {
@@ -31,7 +31,7 @@ const Login = () => {
   const Test = () => {
     if(id === '' || password === '') return alert('아이디, 비밀번호를 입력하세요.');
     setLoading(true);
-    axios.post('/login', {
+    axios.post('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login', {
         id: id,
         password: password,
       }
