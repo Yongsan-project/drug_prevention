@@ -17,6 +17,7 @@ const Login = () => {
     .then((response) => {
       // console.log(response);
     }).catch((error) => {
+      // console.log(error);
       if(error.response.data === 'Not allowed') return navigate('/home', {replace: true});
     });
   }, []);
