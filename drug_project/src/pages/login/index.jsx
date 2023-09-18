@@ -35,6 +35,7 @@ const Login = () => {
     axios.post('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login', {
         id: id,
         password: password,
+        withCredentials: true
       }
     ).then((response) => {
       if(response.data.isAdmin) return navigate('/send', {state: response.data.userId});

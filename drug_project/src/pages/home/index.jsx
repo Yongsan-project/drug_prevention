@@ -55,7 +55,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/home')
+    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/home', {withCredentials: true})
     .then((response) => {
       setUserId(response.data.user);
       if(response.data.user === 'yongsandrug') return navigate('/send', {replace: true, state: response.data.user});
