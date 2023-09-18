@@ -49,10 +49,6 @@ const Sms = () => {
       console.log(error);
     });
   }
-
-  useEffect(() => {
-    sendSms();
-  }, [isPhone]);
   const sendSms = () => {
     if(isPhone){
       axios.post('/send', {phoneNumber: phone})
@@ -63,10 +59,11 @@ const Sms = () => {
         console.log(error);
       });
       document.querySelector('input').value = '';
-    }else{
-      console.log(`is Phone: ${isPhone}`);
     }
   }
+  useEffect(() => {
+    sendSms();
+  }, [isPhone]);
 
   return (
     <S.Container>
