@@ -60,7 +60,8 @@ const Home = () => {
       setUserId(response.data.user);
       if(response.data.user === 'yongsandrug') return navigate('/send', {replace: true, state: response.data.user});
     }).catch((error) => {
-      if(error.response.data === 'Not allowed') return navigate('/', {replace: true});
+      // if(error.response.data === 'Not allowed') return navigate('/', {replace: true});
+      console.log(error);
     });
 
     document.body.offsetWidth >= 1024 ?  setShouldRenderAside(true) : setShouldRenderAside(false);
