@@ -11,7 +11,7 @@ const Join = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/join')
+    axios.get('https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/join', {withCredentials:true})
     .then((response) => {
       console.log(response);
     }).catch((error) => {

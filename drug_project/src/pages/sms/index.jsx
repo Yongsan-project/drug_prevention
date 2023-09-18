@@ -16,6 +16,7 @@ const Sms = () => {
       method: 'get',
       url: '/send',
       params: {"id": state,},
+      withCredentials:true,
     }
     )
     .then((response) => {
