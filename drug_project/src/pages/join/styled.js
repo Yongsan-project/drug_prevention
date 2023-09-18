@@ -21,11 +21,15 @@ export const Container = styled.div`
 
 export const Form = styled.div`
   width: 100%;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  @media screen and (max-width: 768px){
+    justify-content: space-evenly;
+  }
 `;
   
 export const FormEl = styled.div`
