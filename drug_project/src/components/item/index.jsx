@@ -1,7 +1,7 @@
 import * as S from './styled';
 import Button from '../button';
 import Warning from '../warning';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Item = ({image, title, idx, showModal}) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -11,9 +11,6 @@ const Item = ({image, title, idx, showModal}) => {
   const handleDetail = () => {
     showModal(String(idx));
   }
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
   const wait = () => {
     setIsLoading(true);
     setTimeout(() => {
