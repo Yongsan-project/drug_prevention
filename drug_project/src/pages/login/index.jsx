@@ -22,7 +22,9 @@ const Login = () => {
           return navigate("/home", { replace: true });
       })
       .catch((error) => {
-        console.log("Login Error : ", error);
+        // 402 에러가 온다면 로그인되어있음
+        return navigate("/home", { replace: true });
+        // console.log("Login Error : ", error);
         // if(error.response.data === 'Not allowed') return navigate('/home', {replace: true}); <-- Not Allowed 라면 로그인되어 있지 않음.
       });
   }, []);
