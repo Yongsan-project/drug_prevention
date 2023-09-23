@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     axios
-      .get("https://c74c-59-5-126-23.ngrok-free.app/login")
+      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login")
       .then((response) => {
         // console.log(response);
         // 로그인되어있다면 홈 페이지로 이동
@@ -43,11 +43,14 @@ const Login = () => {
       return alert("아이디, 비밀번호를 입력하세요.");
     setLoading(true);
     axios
-      .post("https://c74c-59-5-126-23.ngrok-free.app/login", {
-        id: id,
-        password: password,
-        withCredentials: true,
-      })
+      .post(
+        "https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login",
+        {
+          id: id,
+          password: password,
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         console.log(response.headers);
         window.localStorage.setItem("userId", response.data.userId); // 로컬스토리지에 유저 아이디 저장
