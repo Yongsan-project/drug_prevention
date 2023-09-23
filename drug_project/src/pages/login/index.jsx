@@ -4,7 +4,7 @@ import Button from "../../components/button";
 import Loading from "../../components/loading";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     axios
-      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login")
+      .get("https://c74c-59-5-126-23.ngrok-free.app/login")
       .then((response) => {
         // console.log(response);
         // 로그인되어있다면 홈 페이지로 이동
@@ -23,7 +23,8 @@ const Login = () => {
       })
       .catch((error) => {
         // 402 에러가 온다면 로그인되어있음
-        return navigate("/home", { replace: true });
+        console.log(error);
+        // return navigate("/home", { replace: true });
         // console.log("Login Error : ", error);
         // if(error.response.data === 'Not allowed') return navigate('/home', {replace: true}); <-- Not Allowed 라면 로그인되어 있지 않음.
       });
@@ -41,21 +42,19 @@ const Login = () => {
       return alert("아이디, 비밀번호를 입력하세요.");
     setLoading(true);
     axios
-      .post(
-        "https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login",
-        {
-          id: id,
-          password: password,
-          withCredentials: true,
-        }
-      )
+      .post("https://c74c-59-5-126-23.ngrok-free.app/login", {
+        id: id,
+        password: password,
+        withCredentials: true,
+      })
       .then((response) => {
+        console.log(response.headers);
         window.localStorage.setItem("userId", response.data.userId); // 로컬스토리지에 유저 아이디 저장
         if (response.data.isAdmin)
           return navigate("/send", { state: response.data.userId });
         if (response.data.msg === "Login Success")
-          return navigate("/home", { replace: true });
-        setLoading(false);
+          // return navigate("/home", { replace: true });
+          setLoading(false);
       })
       .catch((error) => {
         console.log(error);

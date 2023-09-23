@@ -48,7 +48,7 @@ const Home = () => {
   };
   const logout = () => {
     axios
-      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/logout")
+      .get("http://localhost:5000/logout")
       .then((response) => {
         console.log(response);
         return navigate("/");
@@ -60,7 +60,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/home", {
+      .get("http://localhost:5000/home", {
         withCredentials: true,
       })
       .then((response) => {
