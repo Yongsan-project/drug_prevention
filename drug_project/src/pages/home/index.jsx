@@ -51,7 +51,7 @@ const Home = () => {
       .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/logout")
       .then((response) => {
         console.log(response);
-        return navigate("/");
+        return navigate("/login");
       })
       .catch((error) => {
         console.log(error);
