@@ -11,14 +11,17 @@ const Join = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("accessToken");
     axios
-      .get("http://localhost:5000/join", { withCredentials: true })
+      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/join", {
+        withCredentials: true,
+        headers: { "x-access-token": token },
+      })
       .then((response) => {
         console.log(response);
       })
       .catch((error) => {
-        if (error.response.data === `Not allowed`)
-          return navigate("/home", { replace: true });
+        return navigate("/home", { replace: true });
       });
   }, []);
 
@@ -132,7 +135,7 @@ const Join = () => {
   const join = () => {
     setLoading(true);
     axios
-      .post("http://localhost:5000/join", {
+      .post("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/join", {
         id: id,
         password: password,
         confirmPassword: passwordConfirm,

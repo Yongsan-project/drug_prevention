@@ -13,19 +13,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    console.log(token);
+
     axios
-      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login")
+      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/login", {
+        headers: { "x-access-token": token },
+      })
       .then((response) => {
-        // console.log(response);
         // 로그인되어있다면 홈 페이지로 이동
-        // if (response.data.status === 200)
-        //   return navigate("/home", { replace: true });
         console.log(response);
+        if (response.data.status === 200)
+          return navigate("/home", { replace: true });
       })
       .catch((error) => {
-        // 402 에러가 온다면 로그인되어있음
-        console.log(error);
-        // return navigate("/home", { replace: true });
+        if (error.response.data.msg !== "Not Allowed User")
+          return navigate("/home", { replace: true });
         // console.log("Login Error : ", error);
         // if(error.response.data === 'Not allowed') return navigate('/home', {replace: true}); <-- Not Allowed 라면 로그인되어 있지 않음.
       });
@@ -52,13 +55,12 @@ const Login = () => {
         }
       )
       .then((response) => {
-        console.log(response.headers);
-        window.localStorage.setItem("userId", response.data.userId); // 로컬스토리지에 유저 아이디 저장
+        setLoading(false);
+        localStorage.setItem("accessToken", response.data.token);
+
         if (response.data.isAdmin)
           return navigate("/send", { state: response.data.userId });
-        if (response.data.msg === "Login Success")
-          // return navigate("/home", { replace: true });
-          setLoading(false);
+        return navigate("/home", { replace: true });
       })
       .catch((error) => {
         console.log(error);
