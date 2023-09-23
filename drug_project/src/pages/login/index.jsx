@@ -20,6 +20,7 @@ const Login = () => {
         // 로그인되어있다면 홈 페이지로 이동
         // if (response.data.status === 200)
         //   return navigate("/home", { replace: true });
+        console.log(response);
       })
       .catch((error) => {
         // 402 에러가 온다면 로그인되어있음
