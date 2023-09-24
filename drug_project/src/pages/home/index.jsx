@@ -47,8 +47,15 @@ const Home = () => {
     setIsSide(false);
   };
   const logout = () => {
+    const token = localStorage.getItem("accessToken");
+    localStorage.removeItem("accessToken");
     axios
-      .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/logout")
+      .get(
+        "https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/logout",
+        {
+          headers: { "x-access-token": token },
+        }
+      )
       .then((response) => {
         console.log(response);
         return navigate("/");
@@ -59,17 +66,19 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("accessToken");
     axios
       .get("https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/home", {
         withCredentials: true,
+        headers: { "x-access-token": token },
       })
       .then((response) => {
+        const { user } = response.data;
         // 세션에 데이터가 안 담겨있음 => 로컬 스토리지 이용
         // 로그인되어있다면 ( 세션이 있다면 ) 로컬스토리지에서 유저의 아이디를 가져와 체크
         // setUserId(response.data.user);
-        const userId = window.localStorage.getItem("userId");
 
-        if (userId === "yongsandrug")
+        if (user === "yongsandrug")
           return navigate("/send", {
             replace: true,
             state: response.data.user,
@@ -78,6 +87,7 @@ const Home = () => {
       .catch((error) => {
         // if(error.response.data === 'Not allowed') return navigate('/', {replace: true});
         console.log(error);
+        return navigate("/", { replace: true });
       });
 
     document.body.offsetWidth >= 1024
