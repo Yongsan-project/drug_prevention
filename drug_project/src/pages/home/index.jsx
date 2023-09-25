@@ -87,7 +87,7 @@ const Home = () => {
       .catch((error) => {
         // if(error.response.data === 'Not allowed') return navigate('/', {replace: true});
         console.log(error);
-        return navigate("/", { replace: true });
+        // return navigate("/", { replace: true });
       });
 
     document.body.offsetWidth >= 1024
