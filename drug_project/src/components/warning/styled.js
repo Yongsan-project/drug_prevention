@@ -11,8 +11,8 @@ export const ChangeColor = keyframes`
     background: #191D88;
   }
   `;
-  
-  export const ShakeIt = keyframes`
+
+export const ShakeIt = keyframes`
   from{
     transform: scale(1);
     // background: #B70404;
@@ -38,9 +38,10 @@ export const Background = styled.div`
   align-items: center;
   justify-content: center;
   background: #B70404;
+  overflow: hidden;
   animation: ${ChangeColor} .5s infinite alternate;
 `;
-  
+
 export const WarningImage = styled.img`
   width: 150px;
   height: 150px;
