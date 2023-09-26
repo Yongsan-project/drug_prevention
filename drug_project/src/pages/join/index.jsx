@@ -21,7 +21,9 @@ const Join = () => {
         console.log(response);
       })
       .catch((error) => {
-        return navigate("/home", { replace: true });
+        if (error.response.data.msg !== "Not Allowed User")
+          return navigate("/home", { replace: true });
+        // return navigate("/home", { replace: true });
       });
   }, []);
 
