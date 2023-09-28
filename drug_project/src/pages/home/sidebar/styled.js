@@ -25,6 +25,7 @@ export const Board = styled.div`
   justify-content: space-evenly;
   height: 100%;
   padding: 20px 0;
+  overflow:scroll;
   >${Aside}{
     width: 80%;
     border: none;
@@ -64,7 +65,7 @@ export const UserID = styled.p`
   font-weight: 600;
   background: #333;
 `;
-  
+
 export const Font = styled.div`
   width: 40px;
   height: 40px;

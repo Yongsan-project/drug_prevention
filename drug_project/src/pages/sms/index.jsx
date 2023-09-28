@@ -14,7 +14,7 @@ const Sms = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/send",
+      url: "https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/send",
       params: { id: state },
       withCredentials: true,
     })
