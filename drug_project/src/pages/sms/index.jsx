@@ -1,4 +1,4 @@
-`import axios from "axios";
+import axios from "axios";
 import * as S from "./styled";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -33,7 +33,7 @@ const Sms = () => {
 
   const inputChange = ({ target: { value } }) => {
     setPhone(value);
-  };`
+  };
 
   const checkPhone = () => {
     const phoneRegExp = /^01([0|1|6|7|8|9])([0-9]{8})$/;
