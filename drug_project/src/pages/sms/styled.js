@@ -55,3 +55,13 @@ export const Btns = styled.div`
     }
   }
 `;
+
+export const Counter = styled.div`
+  display: flex;
+  gap: 20px;
+`
+
+export const Text = styled.p`
+  font-size: 20px;
+  color: white;
+`

@@ -1,4 +1,4 @@
-import axios from "axios";
+`import axios from "axios";
 import * as S from "./styled";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -9,6 +9,8 @@ const Sms = () => {
   const { state } = useLocation();
   const [phone, setPhone] = useState("");
   const [isPhone, setIsPhone] = useState(false);
+  const [totalVisitor, setTotalVisitor] = useState(0);
+  const [todayVisitor, setTodayVisitor] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +21,8 @@ const Sms = () => {
       withCredentials: true,
     })
       .then((response) => {
+        setTotalVisitor(response.data.totalCount);
+        setTodayVisitor(response.data.todayCount);
         if (!response.data.isAdmin) return navigate("/home", { replace: true });
       })
       .catch((error) => {
@@ -29,7 +33,7 @@ const Sms = () => {
 
   const inputChange = ({ target: { value } }) => {
     setPhone(value);
-  };
+  };`
 
   const checkPhone = () => {
     const phoneRegExp = /^01([0|1|6|7|8|9])([0-9]{8})$/;
@@ -52,7 +56,6 @@ const Sms = () => {
         }
       )
       .then((response) => {
-        console.log(response);
         return navigate("/");
       })
       .catch((error) => {
@@ -93,6 +96,10 @@ const Sms = () => {
         <Button onClick={checkPhone}>전송</Button>
         <Button onClick={logout}>로그아웃</Button>
       </S.Btns>
+      <S.Counter>
+        <S.Text>{todayVisitor}</S.Text>
+        <S.Text>{totalVisitor}</S.Text>
+      </S.Counter>
     </S.Container>
   );
 };
