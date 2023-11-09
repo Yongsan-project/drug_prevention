@@ -14,11 +14,16 @@ const Sms = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = window.localStorage.getItem("accessToken");
+    
     axios({
       method: "get",
       url: "https://port-0-drug-api-3prof2lll4t38bw.sel3.cloudtype.app/send",
       params: { id: state },
       withCredentials: true,
+      header : {
+        'x-access-token' : token
+      }
     })
       .then((response) => {
         setTotalVisitor(response.data.totalCount);
